@@ -1,0 +1,72 @@
+﻿<Page x:Class="DataBaseCheck.ChangePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DataBaseCheck"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="ChangePage" Loaded="Page_Loaded">
+
+    <Grid Loaded="Grid_Loaded">
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/BackgroundAdd.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBox x:Name="textboxName" FontSize="32" HorizontalAlignment="Stretch" Height="50" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="#FFF12284" Background="{x:Null}" Foreground="#FF6BFF00" Margin="10,52,10,0">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Label Content="Name:" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FF6BFF00"/>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBox x:Name="textboxSurname" FontSize="32" HorizontalAlignment="Stretch" Height="50" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,52,10,0" Foreground="#FF6BFF00" Background="{x:Null}" BorderBrush="#FFF12284">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Label Content="Surname:" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FF6BFF00"/>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBox x:Name="textboxPhoneNumber" FontSize="32" HorizontalAlignment="Stretch" Height="50" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,52,10,0" Foreground="#FF6BFF00" BorderBrush="#FFF12284" Background="{x:Null}">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Label Content="Phone number:" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FF6BFF00"/>
+        </Grid>
+        <Grid Grid.Row="3" >
+            <Button x:Name="ButtonChange" FontSize="24" Content="Change" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="5,5,5,5" Grid.Row="3" VerticalAlignment="Stretch" Click="ButtonChange_Click" Foreground="#FF6BFF00" BorderBrush="#FFF12284" Background="Transparent" MouseEnter="ButtonChange_MouseEnter" MouseLeave="ButtonChange_MouseLeave">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="30"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+        <Button x:Name="ButtonCancel" FontSize="24" Content="Cancel" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" Click="ButtonCancel_Click" Foreground="#FF6BFF00" BorderBrush="#FFF12284" Grid.Column="1" Grid.Row="3" Background="Transparent" MouseEnter="ButtonCancel_MouseEnter" MouseLeave="ButtonCancel_MouseLeave">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="30"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Page>
