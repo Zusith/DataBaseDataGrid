@@ -156,6 +156,23 @@ namespace DataBaseCheck
             thkanim.Duration = TimeSpan.FromMilliseconds(100);
             FindButton.BeginAnimation(Button.MarginProperty, thkanim);
         }
+
+        private void ButtonConnect_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ThicknessAnimation thkanim = new ThicknessAnimation();
+            thkanim.To = new Thickness(10);
+            thkanim.Duration = TimeSpan.FromMilliseconds(100);
+            ButtonConnect.BeginAnimation(Button.MarginProperty, thkanim);
+        }
+
+        private void ButtonConnect_MouseLeave(object sender, MouseEventArgs e)
+        {
+            ThicknessAnimation thkanim = new ThicknessAnimation();
+            thkanim.From = new Thickness(6);
+            thkanim.To = new Thickness(5);
+            thkanim.Duration = TimeSpan.FromMilliseconds(100);
+            ButtonConnect.BeginAnimation(Button.MarginProperty, thkanim);
+        }
         #endregion
 
         private void FindButton_Click(object sender, RoutedEventArgs e)

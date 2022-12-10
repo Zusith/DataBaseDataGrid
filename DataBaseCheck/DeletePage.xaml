@@ -9,9 +9,6 @@
       Title="DeletePage" Loaded="Page_Loaded">
 
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="Images/BackgroundAdd.jpg" Stretch="UniformToFill"/>
-        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>

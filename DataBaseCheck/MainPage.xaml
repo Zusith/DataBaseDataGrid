@@ -9,9 +9,7 @@
       Title="MainPage" Loaded="Page_Loaded">
 
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="Images/BackgroundAdd.jpg" Stretch="UniformToFill"/>
-        </Grid.Background>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="3*">
@@ -85,7 +83,7 @@
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Button x:Name="ButtonConnect" Content="CONNECT" Background="Transparent" FontSize="24" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" Foreground="#FF6BFF00" BorderBrush="#FFFF1679" Click="ButtonConnect_Click" FontWeight="Bold">
+        <Button x:Name="ButtonConnect" Content="CONNECT" Background="Transparent" FontSize="24" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" Foreground="#FF6BFF00" BorderBrush="#FFFF1679" Click="ButtonConnect_Click" FontWeight="Bold" MouseEnter="ButtonConnect_MouseEnter" MouseLeave="ButtonConnect_MouseLeave">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>

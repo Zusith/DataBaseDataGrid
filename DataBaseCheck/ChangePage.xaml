@@ -9,9 +9,6 @@
       Title="ChangePage" Loaded="Page_Loaded">
 
     <Grid Loaded="Grid_Loaded">
-        <Grid.Background>
-            <ImageBrush ImageSource="Images/BackgroundAdd.jpg" Stretch="UniformToFill"/>
-        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
