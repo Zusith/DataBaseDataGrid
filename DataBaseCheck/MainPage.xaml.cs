@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -160,7 +161,7 @@ namespace DataBaseCheck
         private void ButtonConnect_MouseEnter(object sender, MouseEventArgs e)
         {
             ThicknessAnimation thkanim = new ThicknessAnimation();
-            thkanim.To = new Thickness(10);
+            thkanim.To = new Thickness(15);
             thkanim.Duration = TimeSpan.FromMilliseconds(100);
             ButtonConnect.BeginAnimation(Button.MarginProperty, thkanim);
         }
@@ -168,7 +169,7 @@ namespace DataBaseCheck
         private void ButtonConnect_MouseLeave(object sender, MouseEventArgs e)
         {
             ThicknessAnimation thkanim = new ThicknessAnimation();
-            thkanim.From = new Thickness(6);
+            thkanim.From = new Thickness(15);
             thkanim.To = new Thickness(5);
             thkanim.Duration = TimeSpan.FromMilliseconds(100);
             ButtonConnect.BeginAnimation(Button.MarginProperty, thkanim);
@@ -193,7 +194,33 @@ namespace DataBaseCheck
         {
             utilita.MainPageLoad(TextBoxConnect);        
         } //Загрузка страницы
-
-        
+        //Ввод цифр, изменения шрифта
+        private void TextBoxFontSize_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                MainTable.FontSize = int.Parse(TextBoxFontSize.Text);
+            }
+            catch (Exception)
+            {
+                MainTable.FontSize = 24;
+            }
+        } 
+        //Ввод только цифр
+        private void TextBoxFontSize_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            try
+            {
+                if (!Char.IsDigit(e.Text, 0))
+                {
+                    e.Handled = true;
+                }
+            }
+            catch (Exception)
+            {
+                App.Current.Resources["MessageText"] = "Check font size";
+                utilita.MessageShow();
+            }
+        }
     }
 }

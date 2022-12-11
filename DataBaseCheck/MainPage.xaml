@@ -11,7 +11,7 @@
     <Grid>
         
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="3*">
             </RowDefinition>
             <RowDefinition Height="*">
@@ -27,10 +27,17 @@
             <DataGrid FontSize ="24" IsReadOnly ="true" ColumnWidth="*" x:Name="MainTable" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                       Loaded="MainTable_Loaded" Margin="5" ItemsSource="{Binding Source=ClientContext}" 
                        RowBackground="Transparent" Background="Transparent" BorderBrush="#FFFF1679" Foreground="#FF6BFF00"
-                      VerticalGridLinesBrush="#FFFF1679" HorizontalGridLinesBrush="#FFFF1679">
+                      VerticalGridLinesBrush="#FFFF1679" HorizontalGridLinesBrush="#FFFF1679"
+                      HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                      >
                 <DataGrid.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                    <Style TargetType="ScrollBar">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.RowHeaderStyle>
@@ -76,7 +83,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <TextBox x:Name="TextBoxConnect" Grid.Row="0" Grid.Column="0" Background="Transparent" HorizontalAlignment="Stretch" Height="20" Margin="5,25,5,5" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" FontSize="12" Foreground="#FF6BFF00" BorderBrush="#FFFF1679">
+        <TextBox x:Name="TextBoxConnect" Grid.Row="0" Grid.Column="0" Background="Transparent" HorizontalAlignment="Stretch" Height="40" Margin="5,25,5,5" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" FontSize="12" Foreground="#FF6BFF00" BorderBrush="#FFFF1679">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -91,5 +98,13 @@
             </Button.Resources>
         </Button>
         <Label Content="Connection string:" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Foreground="#FF6BFF00"/>
+        <Label Content="Font size:" FontSize="24" HorizontalAlignment="Left" Margin="0,0,5,3" VerticalAlignment="Bottom" Foreground="#FF6BFF00"/>
+        <TextBox x:Name="TextBoxFontSize" Text="24" Grid.Row="0" Grid.Column="0" Background="Transparent" HorizontalAlignment="Left" Width="100" Height="40" Margin="110,0,0,3" TextWrapping="NoWrap" VerticalAlignment="Bottom" FontSize="28" Foreground="#FF6BFF00" BorderBrush="#FFFF1679" TextChanged="TextBoxFontSize_TextChanged" PreviewTextInput="TextBoxFontSize_PreviewTextInput">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
     </Grid>
 </Page>
