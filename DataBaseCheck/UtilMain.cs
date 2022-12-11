@@ -24,9 +24,9 @@ namespace DataBaseCheck
 
         #region MainPage
 
-        public void MainInitialize()
+        public void MainInitialize(TextBox connectionstring)
         { 
-            App.Current.Resources["ConnectStr"] = "Data Source=DESKTOP-UV6LNDF;Initial Catalog=PhoneDB;Integrated Security=True"; 
+            App.Current.Resources["ConnectStr"] = connectionstring.Text; 
         }
 
         public void MainLoad(TextBox TextBoxConnect, DataGrid MainTable)

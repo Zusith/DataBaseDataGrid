@@ -30,7 +30,7 @@ namespace DataBaseCheck
         public MainPage()
         {
             InitializeComponent();
-            utilita.MainInitialize();
+           // utilita.MainInitialize(TextBoxConnect);
         }
 
         private void MainTable_Loaded(object sender, RoutedEventArgs e)
