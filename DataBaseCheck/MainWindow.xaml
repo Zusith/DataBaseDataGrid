@@ -8,8 +8,9 @@
         Title="MyDataGrid"  Height="600" Width="800" WindowStartupLocation="CenterScreen"
         MinHeight="600" MinWidth="800" Closing="Window_Closing"
         >
-    
-        <Grid AutomationProperties.Name="MyDataGrid">
+    <!--Data Source=DESKTOP-UV6LNDF;Initial Catalog=PhoneDB;Integrated Security=True-->
+
+    <Grid AutomationProperties.Name="MyDataGrid">
         <Grid.Background>
             <ImageBrush ImageSource="Images/BackgroundAdd.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
