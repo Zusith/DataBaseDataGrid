@@ -26,5 +26,6 @@
         </Button>
         <Label FontSize="12" Grid.Row="0" Content="Message" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Foreground="#FF6BFF00"/>
 
+    
     </Grid>
 </Window>
