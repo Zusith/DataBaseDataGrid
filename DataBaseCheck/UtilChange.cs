@@ -21,22 +21,24 @@ namespace DataBaseCheck
     {
         Client cl;
 
-        public void Load(TextBox textboxName, TextBox textboxSurname, TextBox textboxPhoneNumber)
+        public void Load(TextBox textboxName, TextBox textboxSurname, TextBox textboxPhoneNumber, TextBox textboxPost)
         {
             cl = (Client)App.Current.Resources["ClientTest"];
             textboxName.Text = cl.Name;
             textboxSurname.Text = cl.SurName;
             textboxPhoneNumber.Text = cl.PhoneNumber;
+            textboxPost.Text = cl.Post;
         }
 
-        public void Changes(TextBox textboxName, TextBox textboxSurname, TextBox textboxPhoneNumber)
+        public void Changes(TextBox textboxName, TextBox textboxSurname, TextBox textboxPhoneNumber, TextBox textboxPost)
         {
             ClientContext db = new ClientContext((string)App.Current.Resources["ConnectStr"]);
             var chClient = db.Clients.SingleOrDefault(b => b.Name == cl.Name &&
-            b.SurName == cl.SurName && b.PhoneNumber == cl.PhoneNumber);
+            b.SurName == cl.SurName && b.PhoneNumber == cl.PhoneNumber && b.Post == cl.Post);
             chClient.Name = textboxName.Text.ToString();
             chClient.SurName = textboxSurname.Text.ToString();
             chClient.PhoneNumber = textboxPhoneNumber.Text.ToString();
+            chClient.Post = textboxPost.Text.ToString();
             db.SaveChanges();
         }
     }

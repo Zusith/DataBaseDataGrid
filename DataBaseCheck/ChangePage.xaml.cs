@@ -28,26 +28,24 @@ namespace DataBaseCheck
         }
 
         UtilChange uchange = new UtilChange();
-        UtilMain umain = new UtilMain();
+        WindowShow WindowBox = new WindowShow();
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            uchange.Load(textboxName, textboxSurname, textboxPhoneNumber);
+            uchange.Load(textboxName, textboxSurname, textboxPhoneNumber, TextBoxPost);
         } //Загрузка
 
         private void ButtonChange_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(textboxPhoneNumber.Text))
             {
-                uchange.Changes(textboxName, textboxSurname, textboxPhoneNumber);
-                App.Current.Resources["MessageText"] = "Success";
-                umain.MessageShow();
+                uchange.Changes(textboxName, textboxSurname, textboxPhoneNumber, TextBoxPost);
+                WindowBox.MessageShow("Success");
                 ClosePage();
             }
             else
             {
-                App.Current.Resources["MessageText"] = "Phone cannot be empty";
-                umain.MessageShow();
+                WindowBox.MessageShow("Phone cannot be empty");
             }
         } //Кнопка изменение
 

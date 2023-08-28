@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 
 namespace DataBaseCheck.Models
 {
-    class Client
+    //Класс для создания entity из бд
+    class Client 
     {      
         [Key]
+        
         public string Name { get; set; }
         public string SurName { get; set; }
         public string PhoneNumber { get; set; }
+        public string Post { get; set; }
     }
 }

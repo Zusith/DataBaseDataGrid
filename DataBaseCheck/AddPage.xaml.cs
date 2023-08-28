@@ -27,7 +27,7 @@ namespace DataBaseCheck
             InitializeComponent();
         }
 
-        UtilMain umain = new UtilMain();
+        WindowShow WindowBox = new WindowShow();
         UtilAdd uadd = new UtilAdd();
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
@@ -36,21 +36,18 @@ namespace DataBaseCheck
             {
                 if (!string.IsNullOrEmpty(TextBoxPhoneNumber.Text))
                 {
-                    uadd.AddMethod(TextBoxName,TextBoxSurname, TextBoxPhoneNumber);
-                    App.Current.Resources["MessageText"] = "Success";
-                    umain.MessageShow();
+                    uadd.AddMethod(TextBoxName,TextBoxSurname, TextBoxPhoneNumber, TextBoxPost);
+                    WindowBox.MessageShow("Success");
                     ClosePage();
                 }
                 else
                 {
-                    App.Current.Resources["MessageText"] = "Enter phone number";
-                    umain.MessageShow();
+                    WindowBox.MessageShow("Enter right data");
                 }           
             }
             catch (Exception ex)
             {
-                App.Current.Resources["MessageText"] = ex.ToString();
-                umain.MessageShow();
+                WindowBox.MessageShow(ex.ToString());
             }
         } //Добавление
 

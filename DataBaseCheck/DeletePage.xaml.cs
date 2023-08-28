@@ -27,14 +27,13 @@ namespace DataBaseCheck
             InitializeComponent();
         }
 
-        UtilMain umain = new UtilMain();
         UtilDelete udelete = new UtilDelete();
+        WindowShow WindowBox = new WindowShow();
 
         private void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
             udelete.Delete();
-            App.Current.Resources["MessageText"] = "Success";
-            umain.MessageShow();
+            WindowBox.MessageShow("Success");
             ClosePage();
         } //Кнопка удалить
 
@@ -45,7 +44,7 @@ namespace DataBaseCheck
 
         private void Grid_Loaded(object sender, RoutedEventArgs e) //Загрузка
         {
-            udelete.Load(TextBoxName, TextBoxSurname, TextBoxPhoneNumber);
+            udelete.Load(TextBoxName, TextBoxSurname, TextBoxPhoneNumber, TextBoxPost);
         }
 
         private void ClosePage()

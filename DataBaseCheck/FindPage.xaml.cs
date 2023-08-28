@@ -27,8 +27,8 @@ namespace DataBaseCheck
             InitializeComponent();
         }
 
-        UtilMain umain = new UtilMain();
         UtilFind ufind = new UtilFind();
+        WindowShow WindowBox = new WindowShow();
 
         #region Buttons animation //Анимация кнопок
         private void FindButton_MouseEnter(object sender, MouseEventArgs e)
@@ -70,8 +70,7 @@ namespace DataBaseCheck
         {
             if (string.IsNullOrEmpty(textboxName.Text) && string.IsNullOrEmpty(textboxSurname.Text) && string.IsNullOrEmpty(textboxPhoneNumber.Text))
             {
-                App.Current.Resources["MessageText"] = "Enter name and surname or phone number";
-                umain.MessageShow();
+                WindowBox.MessageShow("Enter name and wurname or phone number");
             }
             else
             {

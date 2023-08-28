@@ -1,7 +1,9 @@
 ﻿using DataBaseCheck.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,20 +22,49 @@ namespace DataBaseCheck
 {
     class UtilMain
     {
-        ClientContext db;
+        ClientContext db; //контекст подключения бд
 
         #region MainPage
 
+        //Инициализация главной страницы MainPage.xaml
         public void MainInitialize(TextBox connectionstring)
-        { 
+        {
+            //Чтение файла со строкой подключения
+            string[] optionlines = File.ReadAllLines("option.ini");
+            for (int option = 0; option < optionlines.Length; option++)
+            {
+                if (optionlines[option] == "DataSource")
+                {
+                    connectionstring.Text = optionlines[option + 1];
+                }                
+            }
             App.Current.Resources["ConnectStr"] = connectionstring.Text; 
         }
 
-        public void MainLoad(TextBox TextBoxConnect, DataGrid MainTable)
+        //Подсчет общего количества строк DataGrid
+        public int NumbersOfRowsInDataGrid(DataGrid table) => table.Items.Count;
+
+        #region Add methods for load // доп методы для загрузки
+
+        //Заполнение фильтра по должности
+        public void PostFilterFilling(ComboBox box, List<Client> clients)
         {
-            db = new ClientContext((string)App.Current.Resources["ConnectStr"]);
-            var clients = db.Clients.ToList();
-            MainTable.ItemsSource = clients;
+            List<string> posts = new List<string>();
+            box.Items.Add("All");
+            foreach (var client in clients)
+            {
+                if (!posts.Contains(client.Post))
+                {
+                    posts.Add(client.Post);
+                    box.Items.Add(client.Post);
+                }
+            }
+            box.SelectedItem = "All";
+        }
+
+        //Дополнительная проверка базы данных и DataGrid на соответствие
+        public void DataBaseDataGridEquals(DataGrid MainTable, List<Client> clients)
+        {
             if ((string)App.Current.Resources["Check"] == "true")
             {
                 App.Current.Resources["Check"] = "false";
@@ -64,19 +95,34 @@ namespace DataBaseCheck
             }
         }
 
+        #endregion
+
+        #region Load // загрузка
+
+        //Загрузка страницы MainPage.xaml
+        public void MainLoad(TextBox TextBoxConnect, DataGrid MainTable, ComboBox box)
+        {
+            //Подключение к бд через строку подключения
+            db = new ClientContext((string)App.Current.Resources["ConnectStr"]);
+            var clients = db.Clients.ToList();
+            MainTable.ItemsSource = clients;
+            //Вызов метода проверка соответствия бд и DataGrid
+            DataBaseDataGridEquals(MainTable, clients);
+            //Вызов метода заполния фильтра по должности
+            PostFilterFilling(box, clients);
+        }
+
+        //Загрузка таблицы
         public void MainPageLoad(TextBox TextBoxConnect)
         {
+            //Доп проверка на наличие строки подключения
             if (!string.IsNullOrEmpty((string)App.Current.Resources["ConnectStr"]))
             {
                 TextBoxConnect.Text = (string)App.Current.Resources["ConnectStr"];
             }
         }
 
-        public void MessageShow()
-        {
-            Window1 win = new Window1();
-            win.Show();
-        }
+        #endregion
 
         #endregion
 

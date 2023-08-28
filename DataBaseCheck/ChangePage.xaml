@@ -14,6 +14,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -49,7 +50,7 @@
             </TextBox>
             <Label Content="Phone number:" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FF6BFF00"/>
         </Grid>
-        <Grid Grid.Row="3" >
+        <Grid Grid.Row="4" >
             <Button x:Name="ButtonChange" FontSize="24" Content="Change" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="5,5,5,5" Grid.Row="3" VerticalAlignment="Stretch" Click="ButtonChange_Click" Foreground="#FF6BFF00" BorderBrush="#FFF12284" Background="Transparent" MouseEnter="ButtonChange_MouseEnter" MouseLeave="ButtonChange_MouseLeave">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -58,12 +59,20 @@
                 </Button.Resources>
             </Button>
         </Grid>
-        <Button x:Name="ButtonCancel" FontSize="24" Content="Cancel" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" Click="ButtonCancel_Click" Foreground="#FF6BFF00" BorderBrush="#FFF12284" Grid.Column="1" Grid.Row="3" Background="Transparent" MouseEnter="ButtonCancel_MouseEnter" MouseLeave="ButtonCancel_MouseLeave">
+        <Button x:Name="ButtonCancel" FontSize="24" Content="Cancel" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" Click="ButtonCancel_Click" Foreground="#FF6BFF00" BorderBrush="#FFF12284" Grid.Column="1" Grid.Row="4" Background="Transparent" MouseEnter="ButtonCancel_MouseEnter" MouseLeave="ButtonCancel_MouseLeave">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="30"/>
                 </Style>
             </Button.Resources>
         </Button>
+        <Label Grid.Row="3" Grid.Column="0" Content="Post:" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FF6BFF00"/>
+        <TextBox x:Name="TextBoxPost" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="32" HorizontalAlignment="Stretch" Height="50" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,52,10,0" Foreground="#FF6BFF00" BorderBrush="#FFF12284" Background="{x:Null}">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
     </Grid>
 </Page>

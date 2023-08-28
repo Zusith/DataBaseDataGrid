@@ -14,6 +14,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -46,7 +47,7 @@
                 </TextBox.Resources>
             </TextBox>
         </Grid>
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="4">
             <Button FontSize="24" x:Name="ButtonDelete" Content="Delete" FontWeight="Bold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="ButtonDelete_Click" Margin="5" Foreground="#FF6BFF00" Background="Transparent" BorderBrush="#FFF12284" MouseEnter="ButtonDelete_MouseEnter" MouseLeave="ButtonDelete_MouseLeave">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -55,12 +56,19 @@
                 </Button.Resources>
             </Button>
         </Grid>
-        <Button FontSize="24" x:Name="ButtonCancel" Content="Cancel" FontWeight="Bold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="ButtonCancel_Click" Grid.Column="1" Grid.Row="3" Margin="5" BorderBrush="#FFF12284" Foreground="#FF6BFF00" Background="Transparent" MouseEnter="ButtonCancel_MouseEnter" MouseLeave="ButtonCancel_MouseLeave">
+        <Button FontSize="24" x:Name="ButtonCancel" Content="Cancel" FontWeight="Bold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="ButtonCancel_Click" Grid.Column="1" Grid.Row="4" Margin="5" BorderBrush="#FFF12284" Foreground="#FF6BFF00" Background="Transparent" MouseEnter="ButtonCancel_MouseEnter" MouseLeave="ButtonCancel_MouseLeave">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="30"/>
                 </Style>
             </Button.Resources>
         </Button>
+        <TextBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" IsReadOnly="true" x:Name="TextBoxPost" FontSize="32" HorizontalAlignment="Stretch" Height="50"  TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,30,10,0" BorderBrush="#FFF12284" Foreground="#FF6BFF00" Background="{x:Null}">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
     </Grid>
 </Page>

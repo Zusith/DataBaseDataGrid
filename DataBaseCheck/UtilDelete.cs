@@ -28,12 +28,13 @@ namespace DataBaseCheck
             db.SaveChanges();
         }
 
-        public void Load(TextBox TextBoxName, TextBox TextBoxSurname, TextBox TextBoxPhoneNumber)
+        public void Load(TextBox TextBoxName, TextBox TextBoxSurname, TextBox TextBoxPhoneNumber, TextBox TextBoxPost)
         {
             Client cl = (Client)App.Current.Resources["ClientTest"];
             TextBoxName.Text = cl.Name;
             TextBoxSurname.Text = cl.SurName;
             TextBoxPhoneNumber.Text = cl.PhoneNumber;
+            TextBoxPost.Text = cl.Post;
         }
     }
 }
