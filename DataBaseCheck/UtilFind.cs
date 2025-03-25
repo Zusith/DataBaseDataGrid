@@ -27,6 +27,7 @@ namespace DataBaseCheck
             cl.PhoneNumber = textboxPhoneNumber.Text;
             App.Current.Resources["ClientTest"] = cl;
             App.Current.Resources["Check"] = "true";
+            int adfgvad = 0;
         }
     }
 }

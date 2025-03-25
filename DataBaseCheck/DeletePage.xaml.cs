@@ -97,5 +97,10 @@ namespace DataBaseCheck
             thkanim.Duration = TimeSpan.FromMilliseconds(300);
             this.BeginAnimation(Page.MarginProperty, thkanim);
         }
+
+        private void ButtonDelete_DragEnter(object sender, DragEventArgs e)
+        {
+
+        }
     }
 }
